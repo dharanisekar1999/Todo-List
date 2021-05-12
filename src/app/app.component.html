@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <div class="display-5 text-center">To-Do List <mat-icon>assignment</mat-icon></div>
+ 
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ <div class="container alert alert-secondary text-white mb-3 row-sm" style="max-width: 29rem; height: 37rem;">
+   
+   <div *ngIf="exceed">
+     <div class="alert alert-warning mt-2">
+       <strong>Hello!! it seems you added more than 5 tasks..Complete your pending tasks </strong>
+     </div>
+   
+   </div> 
+   <div *ngIf="empty">
+     <div class="alert alert-primary mt-2">
+       <strong> No tasks here yet </strong>
+     </div>
+   
+   </div> 
+   
+     <div class="card-body mt-2">
+       <div class="row">
+        
+           <div class="col-8">
+             
+               
+             <input [(ngModel)]="task" type="text" value="" class="form-control mt-2">
+            
+          
+           </div>
+           <div class="col-4"><button mat-fab color="primary" matBadge="{{list_of_tasks.length}}" matTooltip="Add a new task" (click)="addtask()"><mat-icon>add</mat-icon></button></div>
+       </div>
+       
+        
+         <div *ngFor="let i of list_of_tasks; let index=index;" class="row">
+           
+          
+         
+           <div class="col-8 mt-2"><mat-card>{{i}}</mat-card></div>
+           <div class="col-4 mt-2" ><button mat-fab color="warn" matTooltip="Delete a task" (click)="deletetask(index)">
+             <mat-icon>delete</mat-icon>
+           </button>
+         </div>
+        
+       </div>
+      
+     
+       
+       
+     </div>
+   
+ </div>
